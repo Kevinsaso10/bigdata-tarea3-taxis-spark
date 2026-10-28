@@ -102,8 +102,18 @@ Se publica código, configuración, documentación y el manifiesto; se excluyen 
 - https://kafka.apache.org/39/getting-started/quickstart/
 - https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
 
-El informe grupal debe añadir la investigación sobre Hadoop/Spark, RDD, DataFrame y arquitectura de Kafka. Los repositorios, videos y presentaciones individuales aún no son enlaces publicados en esta preparación.
+El informe grupal debe integrar la investigación sobre Hadoop/Spark, RDD, DataFrame y arquitectura de Kafka. Los enlaces individuales publicados figuran en la sección siguiente y en `docs/ENLACES_ENTREGA.md`.
 
 ## Evidencia verificable
 
 En `evidencia_resultados/` se incluyen los agregados batch observados, el control de calidad y una reconstrucción resumida del streaming. Se preservan los logs originales en la copia local. El paquete para repositorio excluye los logs completos y los checkpoints.
+
+## Entrega individual publicada
+
+- [Presentación online de Kevin](https://docs.google.com/presentation/d/1VpXfudRAkVF2FW0mSTkmscIz-o7Vi9PbFloew8x_TrY/edit)
+- [Video 1: análisis batch de taxis](https://youtu.be/Tc6o40wohoE)
+- [Video 2: Kafka y streaming de sensores](https://youtu.be/5EfPmqjkKPQ)
+- [Enlaces y pasos para la entrega](docs/ENLACES_ENTREGA.md)
+- [Aporte grupal: RDD y DataFrames](docs/APORTE_RDD_DATAFRAMES.md)
+
+El primer video tiene una mención a Streaming en su título. Kevin confirmó que su contenido corresponde al análisis batch. Las etiquetas de esta documentación identifican cada ejercicio correctamente.

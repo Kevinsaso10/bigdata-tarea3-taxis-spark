@@ -1,111 +1,352 @@
 # Presentación individual de Kevin Obed Tique Villada
 
-Grupo 202016911_125 · Big Data Tarea 3
+Grupo 202016911_125. Big Data, Tarea 3.
 
-Contenido listo para diagramar en una presentación online. Incorporar los enlaces reales de videos y repositorio antes de entregar. Las figuras se basan en los resultados guardados de la ejecución `20261027T154200Z_51508b`; las capturas del primer batch muestran los mismos conteos y agregados.
+Presentación terminada y revisada: https://docs.google.com/presentation/d/1VpXfudRAkVF2FW0mSTkmscIz-o7Vi9PbFloew8x_TrY/edit
 
-## Diapositiva 1 Viajes de taxi con Apache Spark
+## Diapositiva 1
 
-Análisis de viajes de Nueva York en enero de 2025 y práctica de sensores con Kafka.
+Procesamiento de datos
+con Apache Spark
 
-Kevin Obed Tique Villada. Grupo 202016911_125. UNAD. Octubre de 2026.
+Taxis de Nueva York y sensores simulados con Kafka
 
-## Diapositiva 2 Problema y objetivos
+Kevin Obed Tique Villada
+Grupo 202016911_125 · UNAD · ECBTI
+28 de octubre de 2026
 
-Pregunta: ¿En qué horarios y zonas se concentran los viajes registrados y cómo se caracterizan sus distancias, duraciones e importes?
+## Diapositiva 2
 
-Objetivo: describir patrones temporales y geográficos con Spark, aplicando reglas de calidad documentadas.
+PROBLEMA Y FUENTES
 
-Alcance: taxis amarillos durante enero de 2025. Los registros no permiten medir demanda insatisfecha.
+¿Cuándo y dónde se concentran las recogidas?
 
-## Diapositiva 3 Fuente y conjunto de datos
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
 
-NYC Taxi and Limousine Commission. Archivo `yellow_tripdata_2025-01.parquet`: 3.475.226 filas y 20 columnas. Catálogo oficial de zonas para identificar las ubicaciones.
+2
 
-Marcas de tiempo locales de Nueva York, distancias en millas e importes en USD. Conservar el original y su huella SHA-256 permite identificar la copia utilizada.
+Estudiar los viajes observados de taxis amarillos de Nueva York.
 
-Fuente: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+Usar registros TLC de enero de 2025 y el catálogo oficial de zonas.
 
-## Diapositiva 4 Procesamiento y calidad
+Identificar los horarios, días y zonas con más recogidas.
 
-Spark 3.5.8 y DataFrames. Lectura Parquet, validación de fechas, filtros de duración, distancia e importes y zonas identificadas.
+Procesar millones de filas con DataFrames y Spark SQL.
 
-3.475.226 filas originales; 3.225.495 aceptadas; 249.731 excluidas (7,19 %).
+Desarrollar, por separado, el ejercicio de sensores del Anexo 3.
 
-Los motivos de exclusión se solapan. Las reglas delimitan el estudio y no constituyen umbrales oficiales de TLC. No se eliminaron filas solo por parecer duplicadas.
+Fuente: NYC TLC, Trip Record Data. Alcance: viajes registrados, sin estimar demanda insatisfecha.
 
-Visual: captura `03_calidad_taxis.png` o tabla editable con los conteos.
+## Diapositiva 3
 
-## Diapositiva 5 Actividad por hora
+MÉTODO BATCH
 
-Visual: gráfico de `viajes_por_hora.csv` o captura `09a_viajes_hora.png`.
+Del archivo original a los agregados
 
-Mayor actividad entre 18:00 y 18:59: 234.630 viajes. Son viajes acumulados durante enero, no un promedio diario.
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
 
-Hora mínima: 04:00 a 04:59, con 17.760 viajes. Estos patrones describen el subconjunto aceptado.
+3
 
-## Diapositiva 6 Actividad por día y por zona
+Conservar el Parquet original y registrar su huella SHA-256.
 
-Visuales: `09b_viajes_dia.png` y `09c_zonas.png`, o dos diapositivas separadas si el texto queda pequeño.
+Leer el esquema y aplicar reglas explícitas de calidad.
 
-Día con más viajes: 25 de enero, 128.167. Zona con más recogidas: Midtown Center, 160.642. Upper East Side South y North le siguen con 157.417 y 149.183, respectivamente.
+Filtrar enero de 2025, duraciones y distancias operativas.
 
-## Diapositiva 7 Caracterización y valores atípicos
+Agrupar por hora, día y zona. Unir el catálogo de zonas.
 
-Distancia media: 3,12 millas. Duración media: 14,61 minutos. Tarifa base media: 17,95 USD. Importe total medio: 26,77 USD.
+Guardar CSV, resumen JSON y gráficos de agregados pequeños.
 
-Un viaje registra 863.380,37 USD de importe total y 1,6 millas de distancia. Es un dato del original que requiere revisión, no una tarifa representativa. Los promedios monetarios necesitan esa advertencia.
+Entorno: Ubuntu 22.04, Java 11 y Spark 3.5.8. Un worker con dos núcleos.
 
-Fuente: `resumen.json` y revisión del registro en el archivo original. La mediana de 20,33 USD corresponde a la inspección local independiente, no a un cálculo incluido en la ejecución Spark.
+## Diapositiva 4
 
-## Diapositiva 8 Validación y entorno
+CALIDAD DE LOS DATOS
 
-Los conteos de ambas ejecuciones Spark coinciden con el control independiente sobre la misma copia del Parquet.
+El filtro conserva 3.225.495 viajes
 
-Ubuntu 22.04, Java 11, Spark Standalone, un trabajador con dos núcleos. Los tiempos observados fueron 42,935 y 36,274 segundos, excluyendo la pausa para capturas. No constituyen un benchmark comparativo ni prueban escalabilidad multinodo.
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
 
-Visual: `09d_control_batch.png` y, si queda legible, `08_batch_executors.png`.
+4
 
-## Diapositiva 9 Sensores con Kafka y Structured Streaming
+3.475.226
 
-Componente separado que desarrolla el Anexo 3: productor Python con temperatura y humedad sintéticas; topic `sensor_data_125`; Kafka 3.9.2 con ZooKeeper; consumidor Spark 3.5.8.
+Filas originales
 
-Una partición y replicación 1. El productor espera confirmación de Kafka y muestra offsets.
+Parquet TLC de enero de 2025
 
-Visual: `10_topic_kafka.png` o `11_productor_kafka.png`.
+3.225.495
 
-## Diapositiva 10 Ventanas y monitor
+Filas aceptadas
 
-Ventanas de un minuto por sensor y marca de agua de dos minutos. Conteo, temperatura media y humedad media. Fechas UTC. Salida de actualizaciones con checkpoint persistente.
+Cumplen las reglas del estudio
 
-El monitor muestra las últimas ventanas modificadas y se actualiza cada tres segundos. No representa todo el historial.
+249.731
 
-Visual: `13_monitor_streaming.png`. Fuente técnica: https://spark.apache.org/docs/3.5.8/structured-streaming-programming-guide.html
+Filas excluidas
 
-## Diapositiva 11 Resultados de streaming y dificultades
+Diferencia entre originales y aceptadas
 
-Las últimas cuentas de cada ventana y sensor, reconstruidas desde los archivos guardados, representan 420 eventos. No se sumaron las actualizaciones repetidas.
+7,19 %
 
-Se observó un conflicto al lanzar un consumidor adicional sobre el mismo checkpoint. La consulta original siguió generando resultados. La corrección es mantener un solo consumidor activo por sesión; se añadió un bloqueo local como protección para futuras ejecuciones.
+Proporción excluida
 
-Visuales: `14_streaming_jobs.png` y `15_streaming_executors.png`. En la captura de Executors: driver y un ejecutor de dos núcleos, cero tareas fallidas.
+Los motivos de exclusión se solapan
 
-## Diapositiva 12 Conclusión individual
+Criterios operativos propios. No son umbrales oficiales de TLC. Fuente: resumen.json y control local.
 
-La práctica permitió procesar un archivo de millones de viajes con DataFrames, verificar el efecto de las reglas de calidad y visualizar agregados acotados. Kafka y Structured Streaming permitieron observar el procesamiento incremental de sensores y la actualización de ventanas. Las evidencias muestran el funcionamiento en una máquina virtual, con límites de alcance y sin demostrar alta disponibilidad o demanda insatisfecha.
+## Diapositiva 5
 
-## Diapositiva 13 Código y videos
+RESULTADOS POR HORA
 
-Incorporar el enlace real del repositorio, el video batch y el video de Kafka/streaming. Verificar acceso sin iniciar sesión antes de entregar. Si el tutor confirma un solo video, ajustar esta diapositiva.
+Las 18:00 reúnen más recogidas
 
-## Diapositiva 14 Referencias
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
 
-Apache Software Foundation. (s. f.). *Spark SQL, DataFrames and Datasets guide*. Apache Spark 3.5.8. https://spark.apache.org/docs/3.5.8/sql-programming-guide.html
+5
 
-Apache Software Foundation. (s. f.). *Structured Streaming programming guide*. Apache Spark 3.5.8. https://spark.apache.org/docs/3.5.8/structured-streaming-programming-guide.html
+Enero de 2025. Suma mensual por hora local del archivo TLC. Fuente: viajes_por_hora.csv.
 
-Apache Software Foundation. (s. f.). *Structured Streaming and Kafka integration guide*. Apache Spark 3.5.8. https://spark.apache.org/docs/3.5.8/structured-streaming-kafka-integration.html
+0 mil
 
-Apache Software Foundation. (s. f.). *Quick start*. Apache Kafka 3.9. https://kafka.apache.org/39/getting-started/quickstart/
+100 mil
 
-New York City Taxi and Limousine Commission. (s. f.). *TLC trip record data* [Conjunto de datos]. https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+200 mil
+
+0
+
+3
+
+6
+
+9
+
+12
+
+15
+
+18
+
+21
+
+23
+
+Viajes aceptados
+
+Hora de recogida
+
+## Diapositiva 6
+
+RESULTADOS POR DÍA
+
+El 25 de enero registra 128.167 viajes
+
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
+
+6
+
+Viajes aceptados por fecha de recogida. Fuente: viajes_por_dia.csv.
+
+0 mil
+
+50 mil
+
+100 mil
+
+150 mil
+
+1
+
+5
+
+10
+
+15
+
+20
+
+25
+
+30
+
+31
+
+Viajes aceptados
+
+Día de enero
+
+## Diapositiva 7
+
+DIEZ ZONAS PRINCIPALES
+
+Midtown Center lidera las recogidas
+
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
+
+7
+
+Número de viajes aceptados por zona de origen. Fuente: zonas_principales.csv.
+
+Midtown Center
+
+160.642
+
+Upper East Side South
+
+157.417
+
+Upper East Side North
+
+149.183
+
+JFK Airport
+
+128.996
+
+Times Sq / Theatre District
+
+117.643
+
+Penn Station / Madison Sq W.
+
+113.471
+
+Midtown East
+
+112.125
+
+Lincoln Square East
+
+105.621
+
+Upper West Side South
+
+91.572
+
+Midtown North
+
+91.205
+
+## Diapositiva 8
+
+INTERPRETACIÓN
+
+Las medias monetarias requieren cautela
+
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
+
+8
+
+Promedios de los viajes aceptados
+
+Distancia: 3,12 millas
+
+Duración: 14,61 minutos
+
+Importe total: USD 26,77
+
+Un valor extremo permanece
+
+Total máximo: USD 863.380,37
+
+Supera lo esperable y afecta las medias.
+
+La regla actual no impone un máximo monetario.
+
+El dato requiere revisión. El importe total no equivale al ingreso neto del conductor.
+
+## Diapositiva 9
+
+Sensores simulados con Kafka y Spark
+
+El productor genera temperatura y humedad para diez sensores.
+
+Kafka conserva los eventos en el topic sensor_data_125.
+
+Spark agrupa por sensor y ventana de un minuto. El watermark es de dos minutos y el disparador, de cinco segundos.
+
+La consulta guarda actualizaciones JSON y conserva su checkpoint.
+
+Kevin Obed Tique Villada · Grupo 202016911_125 · Tarea 3
+
+## Diapositiva 10
+
+EVIDENCIA DE STREAMING
+
+El monitor muestra actualizaciones por ventana
+
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
+
+10
+
+Captura de la ejecución. Datos sintéticos. Temperatura en °C y humedad relativa en %.
+
+## Diapositiva 11
+
+Resultados e incidencias de la ejecución
+
+Batch: los conteos de Spark coinciden con el control local independiente.
+
+Streaming: 86 archivos con datos, 85 pares de ventana y sensor, y 420 eventos representados. Se toma la última actualización de cada par.
+
+Un segundo consumidor sobre el mismo checkpoint produjo un conflicto. La consulta original continuó.
+
+La ejecución usa una máquina virtual. Sus tiempos no constituyen una comparación de rendimiento distribuido.
+
+Fuente: salidas guardadas, logs y capturas de Spark. Protección nueva de sesión: prueba en Ubuntu pendiente.
+
+## Diapositiva 12
+
+CIERRE INDIVIDUAL
+
+Conclusiones de mi práctica
+
+Kevin Obed Tique Villada · Big Data · Grupo 202016911_125 · Tarea 3
+
+12
+
+Los DataFrames permiten expresar filtros y agregaciones verificables.
+
+La limpieza cambia el conjunto analizado y debe quedar documentada.
+
+Los agregados identifican concentración de viajes observados.
+
+Kafka y Spark actualizan los resultados de las ventanas de sensores.
+
+Las evidencias y los límites del estudio sustentan las conclusiones.
+
+## Diapositiva 13
+
+Repositorio y videos
+
+Código y resultados
+https://github.com/Kevinsaso10/bigdata-tarea3-taxis-spark
+
+Video 1: análisis batch de taxis
+https://youtu.be/Tc6o40wohoE
+
+Video 2: Kafka y streaming
+https://youtu.be/5EfPmqjkKPQ
+
+## Diapositiva 14
+
+Referencias
+
+Apache Software Foundation. (s. f.). Spark SQL, DataFrames and Datasets guide. Apache Spark 3.5.8.
+https://spark.apache.org/docs/3.5.8/sql-programming-guide.html
+
+Apache Software Foundation. (s. f.). Structured Streaming programming guide. Apache Spark 3.5.8.
+https://spark.apache.org/docs/3.5.8/structured-streaming-programming-guide.html
+
+Apache Software Foundation. (s. f.). Structured Streaming and Kafka integration guide. Apache Spark 3.5.8.
+https://spark.apache.org/docs/3.5.8/structured-streaming-kafka-integration.html
+
+Apache Software Foundation. (s. f.). Quick start. Apache Kafka 3.9.
+https://kafka.apache.org/39/getting-started/quickstart/
+
+New York City Taxi and Limousine Commission. (s. f.). TLC trip record data [Conjunto de datos].
+https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
+Kevin Obed Tique Villada · Grupo 202016911_125 · Tarea 3
+
+Los gráficos son objetos nativos editables y derivan de los CSV de evidencia_resultados. La diapositiva del monitor usa la captura propia 13_monitor_streaming.png con su proporción original. Las fuentes y los límites también están documentados en las notas de cada diapositiva.

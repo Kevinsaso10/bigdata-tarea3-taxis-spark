@@ -1,5 +1,5 @@
 {
-  "estado": "Batch y streaming ejecutados en Ubuntu; resultados y capturas recibidos",
+  "estado": "Batch y streaming ejecutados; repositorio, dos videos y presentación publicados",
   "batch_coincide_control": true,
   "ejecuciones_batch": [
     "20261027T152558Z_ca7c8b",
@@ -16,9 +16,21 @@
   "incidente_checkpoint": "Un intento simultáneo falló; preservado y documentado",
   "proteccion_nueva": "Bloqueo local añadido; prueba en Ubuntu pendiente",
   "pendiente": [
-    "Grabar y publicar videos",
-    "Diagramar y publicar presentación con enlaces",
-    "Integrar aporte grupal RDD/DataFrames"
+    "Verificar al menos dos aportes de calidad en el foro",
+    "Integrar investigación y enlaces de los participantes en Tarea3_grupo.pdf",
+    "Un integrante elegido realiza la entrega del PDF en Evaluación"
   ],
-  "repositorio": "https://github.com/Kevinsaso10/bigdata-tarea3-taxis-spark"
+  "repositorio": "https://github.com/Kevinsaso10/bigdata-tarea3-taxis-spark",
+  "videos": {
+    "batch": "https://youtu.be/Tc6o40wohoE",
+    "streaming": "https://youtu.be/5EfPmqjkKPQ",
+    "orden_confirmado_por_Kevin": true,
+    "duracion_verificada": false
+  },
+  "presentacion": {
+    "url": "https://docs.google.com/presentation/d/1VpXfudRAkVF2FW0mSTkmscIz-o7Vi9PbFloew8x_TrY/edit",
+    "diapositivas": 14,
+    "revision_visual_completa": true,
+    "acceso_sin_sesion_verificado": true
+  }
 }
