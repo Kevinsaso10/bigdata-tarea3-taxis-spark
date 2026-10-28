@@ -16,9 +16,9 @@
   "incidente_checkpoint": "Un intento simultáneo falló; preservado y documentado",
   "proteccion_nueva": "Bloqueo local añadido; prueba en Ubuntu pendiente",
   "pendiente": [
-    "Publicar repositorio",
     "Grabar y publicar videos",
     "Diagramar y publicar presentación con enlaces",
     "Integrar aporte grupal RDD/DataFrames"
-  ]
+  ],
+  "repositorio": "https://github.com/Kevinsaso10/bigdata-tarea3-taxis-spark"
 }
