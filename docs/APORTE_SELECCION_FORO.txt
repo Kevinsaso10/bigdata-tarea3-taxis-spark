@@ -1,0 +1,14 @@
+Cordial saludo, tutor y compañeros.
+
+Para mi proyecto individual seleccioné el análisis de viajes de taxis amarillos de Nueva York durante enero de 2025. La pregunta es: ¿en qué horarios y zonas se concentran los viajes registrados y cómo varían sus distancias, duraciones e importes?
+
+Utilizaré el archivo Parquet oficial de la NYC Taxi and Limousine Commission y su catálogo de zonas. La copia descargada contiene 3.475.226 registros, según la inspección de sus metadatos. Esta comprobación inicial todavía no corresponde a una ejecución del análisis con Spark.
+
+Desarrollaré la carga y limpieza con DataFrames, documentando fechas fuera del periodo, valores ausentes y criterios operativos de duración, distancia e importes. Conservaré el original y explicaré las filas excluidas, sin confundir el volumen de viajes observados con la demanda insatisfecha. Los resultados previstos son tablas y gráficos por hora, día y zona.
+
+Además, desarrollaré la práctica del Anexo 3 con sensores simulados, Kafka y Spark Structured Streaming para calcular promedios por sensor en ventanas de un minuto. Compartiré el repositorio y las evidencias cuando haya realizado las pruebas en Ubuntu.
+
+Si ya cuentan con el grupo de coordinación y un documento compartido, agradezco que me integren para acordar los aportes de investigación y la consolidación.
+
+Referencia
+New York City Taxi and Limousine Commission. (s. f.). TLC trip record data [Conjunto de datos]. https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page

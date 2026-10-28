@@ -1,0 +1,22 @@
+{
+  "fuente": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+  "archivos": [
+    {
+      "nombre": "yellow_tripdata_2025-01.parquet",
+      "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-01.parquet",
+      "bytes": 59158238,
+      "sha256": "9af277e4c0d3f9deb30644da822981e1e7df6af58313170fd3aa8a474485488a",
+      "descargado_utc": null,
+      "verificado_utc": "2026-10-20T15:14:33.416270+00:00"
+    },
+    {
+      "nombre": "taxi_zone_lookup.csv",
+      "url": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+      "bytes": 12331,
+      "sha256": "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed",
+      "descargado_utc": null,
+      "verificado_utc": "2026-10-20T15:14:33.417587+00:00"
+    }
+  ],
+  "nota": "SHA-256 calculado localmente para reproducibilidad; no constituye una firma oficial de TLC. La fuente puede actualizar archivos."
+}

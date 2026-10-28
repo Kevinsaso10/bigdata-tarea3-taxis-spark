@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 370" role="img" aria-label="Diez zonas con más recogidas">
+<rect width="100%" height="100%" fill="white"/>
+<text x="15" y="28" font-size="21" font-family="Arial">Diez zonas con más recogidas</text>
+<text x="15" y="66" font-size="13" font-family="Arial">Midtown Center</text>
+<rect x="305" y="50" width="580.00" height="21" fill="#226b9c"/>
+<text x="895.00" y="66" font-size="12" font-family="Arial">160,642</text>
+<text x="15" y="96" font-size="13" font-family="Arial">Upper East Side South</text>
+<rect x="305" y="80" width="568.36" height="21" fill="#226b9c"/>
+<text x="883.36" y="96" font-size="12" font-family="Arial">157,417</text>
+<text x="15" y="126" font-size="13" font-family="Arial">Upper East Side North</text>
+<rect x="305" y="110" width="538.63" height="21" fill="#226b9c"/>
+<text x="853.63" y="126" font-size="12" font-family="Arial">149,183</text>
+<text x="15" y="156" font-size="13" font-family="Arial">JFK Airport</text>
+<rect x="305" y="140" width="465.74" height="21" fill="#226b9c"/>
+<text x="780.74" y="156" font-size="12" font-family="Arial">128,996</text>
+<text x="15" y="186" font-size="13" font-family="Arial">Times Sq/Theatre District</text>
+<rect x="305" y="170" width="424.75" height="21" fill="#226b9c"/>
+<text x="739.75" y="186" font-size="12" font-family="Arial">117,643</text>
+<text x="15" y="216" font-size="13" font-family="Arial">Penn Station/Madison Sq West</text>
+<rect x="305" y="200" width="409.69" height="21" fill="#226b9c"/>
+<text x="724.69" y="216" font-size="12" font-family="Arial">113,471</text>
+<text x="15" y="246" font-size="13" font-family="Arial">Midtown East</text>
+<rect x="305" y="230" width="404.83" height="21" fill="#226b9c"/>
+<text x="719.83" y="246" font-size="12" font-family="Arial">112,125</text>
+<text x="15" y="276" font-size="13" font-family="Arial">Lincoln Square East</text>
+<rect x="305" y="260" width="381.35" height="21" fill="#226b9c"/>
+<text x="696.35" y="276" font-size="12" font-family="Arial">105,621</text>
+<text x="15" y="306" font-size="13" font-family="Arial">Upper West Side South</text>
+<rect x="305" y="290" width="330.62" height="21" fill="#226b9c"/>
+<text x="645.62" y="306" font-size="12" font-family="Arial">91,572</text>
+<text x="15" y="336" font-size="13" font-family="Arial">Midtown North</text>
+<rect x="305" y="320" width="329.30" height="21" fill="#226b9c"/>
+<text x="644.30" y="336" font-size="12" font-family="Arial">91,205</text>
+<text x="15" y="362" font-size="12" font-family="Arial">Viajes</text></svg>

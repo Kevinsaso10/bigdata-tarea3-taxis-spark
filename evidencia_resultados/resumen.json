@@ -1,0 +1,39 @@
+{
+  "autor": "Kevin Obed Tique Villada",
+  "grupo": "202016911_125",
+  "ejecucion": "20261027T154200Z_51508b",
+  "spark_version": "3.5.8",
+  "master": "spark://127.0.0.1:7077",
+  "fuente": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+  "archivo": "yellow_tripdata_2025-01.parquet",
+  "sha256": "9af277e4c0d3f9deb30644da822981e1e7df6af58313170fd3aa8a474485488a",
+  "reglas": {
+    "periodo_inicio": "2025-01-01",
+    "periodo_fin_exclusivo": "2025-02-01",
+    "duracion_max_minutos": 180,
+    "distancia_max_millas": 100,
+    "descripcion": "Reglas operativas de este estudio, no umbrales oficiales de TLC. No se eliminan filas solo por parecer duplicadas: no existe un identificador de viaje único en el archivo."
+  },
+  "calidad": {
+    "filas_originales": 3475226,
+    "filas_aceptadas": 3225495,
+    "excluidas_por_fechas_presentes": 0,
+    "excluidas_por_recogida_en_periodo": 22,
+    "excluidas_por_duracion_aceptada": 3428,
+    "excluidas_por_distancia_aceptada": 91055,
+    "excluidas_por_importes_positivos": 145548,
+    "excluidas_por_zonas_identificadas": 28357,
+    "filas_excluidas": 249731,
+    "nota": "Los motivos se solapan: no deben sumarse. No se eliminaron posibles duplicados sin un identificador único de viaje."
+  },
+  "resumen": {
+    "viajes": 3225495,
+    "distancia_media_millas": 3.117610776019862,
+    "duracion_media_min": 14.60537081905245,
+    "tarifa_media_usd": 17.952832073840337,
+    "total_medio_usd": 26.77105719897897,
+    "total_maximo_usd": 863380.37
+  },
+  "segundos_procesamiento": 36.274,
+  "alcance": "Viajes observados de taxis amarillos en enero de 2025; no demanda insatisfecha. No es un benchmark distribuido."
+}

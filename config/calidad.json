@@ -1,0 +1,7 @@
+{
+  "periodo_inicio": "2025-01-01",
+  "periodo_fin_exclusivo": "2025-02-01",
+  "duracion_max_minutos": 180,
+  "distancia_max_millas": 100,
+  "descripcion": "Reglas operativas de este estudio, no umbrales oficiales de TLC. No se eliminan filas solo por parecer duplicadas: no existe un identificador de viaje único en el archivo."
+}

@@ -1,0 +1,13 @@
+.deps/
+.venv/
+__pycache__/
+*.pyc
+datos/originales/*
+!datos/originales/.gitkeep
+resultados/*
+!resultados/.gitkeep
+runtime/
+logs/
+*.zip
+.env
+*.log

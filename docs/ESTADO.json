@@ -1,0 +1,24 @@
+{
+  "estado": "Batch y streaming ejecutados en Ubuntu; resultados y capturas recibidos",
+  "batch_coincide_control": true,
+  "ejecuciones_batch": [
+    "20261027T152558Z_ca7c8b",
+    "20261027T154200Z_51508b"
+  ],
+  "streaming": {
+    "metodo": "Última actualización disponible por inicio, fin y sensor; no sumar snapshots repetidos",
+    "archivos_con_datos": 86,
+    "ventanas_sensor_observadas": 85,
+    "eventos_representados": 420,
+    "ultimo_batch_observado": 87,
+    "limitacion": "Reconstrucción desde las salidas guardadas, no prueba global de entrega exactamente una vez."
+  },
+  "incidente_checkpoint": "Un intento simultáneo falló; preservado y documentado",
+  "proteccion_nueva": "Bloqueo local añadido; prueba en Ubuntu pendiente",
+  "pendiente": [
+    "Publicar repositorio",
+    "Grabar y publicar videos",
+    "Diagramar y publicar presentación con enlaces",
+    "Integrar aporte grupal RDD/DataFrames"
+  ]
+}

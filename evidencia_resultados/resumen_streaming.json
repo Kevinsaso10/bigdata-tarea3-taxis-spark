@@ -1,0 +1,8 @@
+{
+  "metodo": "Última actualización disponible por inicio, fin y sensor; no sumar snapshots repetidos",
+  "archivos_con_datos": 86,
+  "ventanas_sensor_observadas": 85,
+  "eventos_representados": 420,
+  "ultimo_batch_observado": 87,
+  "limitacion": "Reconstrucción desde las salidas guardadas, no prueba global de entrega exactamente una vez."
+}
